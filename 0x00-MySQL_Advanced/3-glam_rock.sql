@@ -1,5 +1,6 @@
 -- Lists all bands with Glam as their main style, ranked by their longevity
+SELECT band_name, (YEAR(split) - YEAR(formed)) as lifespan
+FROM bands
+WHERE genre = 'Glam rock'
+ORDER BY lifespan DESC;
 
-SELECT band_name, COALESCE(split, 2020) - formed as lifespan
-FROM metal_bands
-WHERE style like '%Glam rock%';
